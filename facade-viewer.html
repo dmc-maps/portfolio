@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facade Inspection Viewer - Devin Clark</title>
+  <meta name="description" content="A drawing-indexed facade inspection viewer that ties drone-captured defects to specific building faces for NYC FISP compliance." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">DC</a>
+      <nav class="nav">
+        <a href="index.html#work">Work</a>
+        <a class="nav-cta" href="mailto:dmc@digitalmappingconsultants.org">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="case">
+      <div class="case-hero">
+        <p class="eyebrow">Structural / Facade inspection</p>
+        <h1>Facade Inspection Viewer</h1>
+        <p class="lede">A drawing-indexed viewer that turns hundreds of inspection photos into defects tied to specific building faces.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://dmc-maps.github.io/dmc-demo" target="_blank" rel="noopener">Open the live viewer</a>
+        </div>
+      </div>
+
+      <img src="img/facade1.png" alt="Facade inspection viewer, building face view" />
+      <img src="img/facade2.png" alt="Facade inspection viewer, defect detail view" />
+
+      <section>
+        <h2>The problem</h2>
+        <p>Traditional drone based photogrammetric facade inspection methods frequently produce bulky, unintuative deliverables that the end user, an engineer, has to teach themselves how to integrate into their workflow. A single building produces unreliable 3D outputs, hundreds of drone images across every face, in both visible and thermal bands. A reviewer does not need a folder of photos. They need each defect tied to a specific building face and to the engineering drawing, so it can be found, measured, and acted on, with outputs that are integrated directly into the documents the engineers already use.</p>
+      </section>
+
+      <section>
+        <h2>What I built</h2>
+        <p>I captured every building face by drone in RGB and thermal, then built a Python pipeline that organizes and places each image, and an HTML viewer that indexes the annotated defects to the correct face and a drawing grid. It is a repeatable pipeline, not a one-off export, so the next building runs through the same workflow.</p>
+      </section>
+
+      <section>
+        <h2>The deliverable</h2>
+        <p>An interactive HTML viewer organized by building face, with RGB and thermal anomaly callouts a reviewer can scan quickly and trace back to the drawing. It ships as a self-contained package the engineering team can open and hand to the client.</p>
+        <ul class="stack"><li>Python</li><li>HTML / CSS</li><li>Drone (RGB + thermal)</li></ul>
+      </section>
+
+      <section>
+        <h2>Outcome</h2>
+        <p>Replaced both a manual photo-sorting and reporting process and the need to adopt unreliable, bulky dataflows with a repeatable, production-proven deliverable that scales to the hundreds of buildings on any Metro area's facade inspection cycle.</p>
+      </section>
+
+      <a class="back-link" href="index.html#work">Back to work</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Devin Clark</span>
+      <span>dmc@digitalmappingconsultants.org · Open to remote, US</span>
+    </div>
+  </footer>
+</body>
+</html>

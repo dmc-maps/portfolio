@@ -1,34 +1,33 @@
 # Portfolio site - deploy notes
 
-A single static page (`portfolio.html` + `styles.css` + `contours.svg`). No build step, no dependencies. It loads instantly and hosts anywhere.
+Static site, no build step, no dependencies. Entry point is `index.html`.
 
 ## Files
-- `portfolio.html` - the page (named by project, not index.html)
+- `index.html` - the homepage (GitHub Pages serves this at the domain root)
+- `facade-viewer.html`, `web-maps.html`, `railroad-corridor.html`, `court-exhibits.html` - the four case-study pages
 - `styles.css` - cartographic GIS-professional theme
-- `contours.svg` - topographic contour motif used in the hero background
+- `contours.svg` - topographic contour motif used in the hero
 - `DevinClark_Resume.pdf` - linked by the "Download resume" button
+- `img/` - card and case-study images
 
-## Before you publish (10 minutes)
-1. **Confirm the resume PDF is here.** The "Download resume" button points to `DevinClark_Resume.pdf` in this folder. (Regenerate from `../resume/` any time.)
-2. **Fill in the four project links.** Each card has an "Add demo link / case summary / sample map" placeholder. Replace `href="#"` with a real URL once each demo or writeup is live (see `../github/github-plan.md`).
-3. **Optional: add a screenshot to each card.** A single clean image per project lifts this a lot. Put images in an `img/` folder and add an `<img>` at the top of each `.card`.
+## Deploy to GitHub Pages (repo: dmc-maps/portfolio)
+1. Put every file in this folder (including `img/`) at the root of the `dmc-maps/portfolio` repo.
+2. Keep the `CNAME` file in the repo (it holds `portfolio.digitalmappingconsultants.com`).
+3. Commit and push (GitHub Desktop: review changes, commit, push).
+4. Repo Settings, then Pages: Source `main` branch, `/root`. The custom-domain DNS check passes once propagation finishes, then tick "Enforce HTTPS" once it is no longer grayed out.
+5. Live at https://portfolio.digitalmappingconsultants.com
 
-## Publish to GitHub Pages (free)
-1. Create a repo (suggested name: `portfolio` or `devin-clark`).
-2. Add these files to the repo root and push.
-3. Repo Settings, then Pages, then Source: `main` branch, `/root`. Save.
-4. GitHub Pages serves `index.html` at a directory root. Since this page is `portfolio.html`, either link to `https://<username>.github.io/<repo>/portfolio.html`, or copy `portfolio.html` to `index.html` in the repo for a clean root URL. (Keep `portfolio.html` as your working filename either way.)
-5. Live in about a minute.
+The entry must stay named `index.html` so the domain root serves the homepage. The case pages keep their project names.
 
-## Custom domain (optional)
-You already have `demo.digitalmappingconsultants.com` pending in Hover. You can point a subdomain (for example `devin.digitalmappingconsultants.com`) at GitHub Pages with a CNAME record, then set it under Settings, Pages, Custom domain. A clean personal URL on your own domain reads more senior than a github.io link.
+## DNS (already configured)
+DNS for digitalmappingconsultants.com is hosted at WordPress.com (nameservers ns1/ns2/ns3.wordpress.com), not Hover. A CNAME `portfolio -> dmc-maps.github.io` is set there. To put the facade demo on its own subdomain later, add another CNAME the same way at WordPress.com.
 
 ## Preview locally
 A launch config named `portfolio` serves this folder on port 5050. Or run:
 ```
 python -m http.server 5050
 ```
-then open http://localhost:5050/portfolio.html
+then open http://localhost:5050
 
 ## Style rules kept
-Plain hyphens only (no em or en dashes), one primary accent, understated. Keep it that way when you edit.
+Plain hyphens only (no em or en dashes), no decorative accents, one primary accent, understated. Keep it that way when you edit.
